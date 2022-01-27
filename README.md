@@ -1,13 +1,13 @@
 # Save The Planet 
 
-> "Save the planet" é um jogo feito com HTML CSS e JavaScript, no intuito de treinar comandos do JavaScript que alteram a posição e a estrutura de elementos no HTML.
+> "Save the planet" é um jogo feito com HTML, CSS e JavaScript no intuito de treinar comandos do JavaScript que alteram a posição e a estrutura de elementos no HTML.
 O Jogo consiste em uma nave e 150 bombas que serão jogadas no planeta Terra, a nave dispara tiros e se os tiros encostarem nas bombas, elas explodem, impedindo-as de tocar na Terra. Se as bombas tocarem no planeta, ela explode, exibe um som e é subtraido um valor na vida do planeta. 
 
-![GitHub repo size](https://img.shields.io/github/repo-size/KauaMB2/CPlusPlus-CFBCursos?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/KauaMB2/CPlusPlus-CFBCursos?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/KauaMB2/CPlusPlus-CFBCursos?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/KauaMB2/CPlusPlus-CFBCursos?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/KauaMB2/CPlusPlus-CFBCursos?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/KauaMB2/Save-The-Planet?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/KauaMB2/Save-The-Planet?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/KauaMB2/Save-The-Planet?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/KauaMB2/Save-The-Planet?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/KauaMB2/Save-The-Planet?style=for-the-badge)
 <hr>
 
 ## Feito Com:
