@@ -17,7 +17,7 @@ The Game consists of a spaceship and 150 bombs that will be dropped on planet Ea
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 [![JAVASCRIPT](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
-<li> Game image:
+## Game image:
 
 <img src="img\imgJogo.png" class="img"></a>
 <hr>
