@@ -22,19 +22,6 @@ function teclaDw(){
 			console.log("Erro desconhecido ao movimentar a nave!!");
 			break;
 	}
-	/*if(tecla==38){//Cima
-		diryJ=-1;
-	}else if(tecla==40){//Baixo
-		diryJ=1;
-	}
-	if(tecla==37){//Esquerda
-		dirxJ=-1;
-	}else if(tecla==39){//Direita
-		dirxJ=1;
-	}
-	if(tecla==32){//Espaço / Tiro
-		//TIRO
-	}*/
 }
 function teclaUp(){
 	var tecla=event.keyCode;
@@ -86,7 +73,7 @@ function atira(x,y){
 	att2.value="top:"+y+"px;left:"+x+"px;";//Defione o estilo
 	tiro.setAttributeNode(att1);//Adiciona ao tiro, o classe
 	tiro.setAttributeNode(att2);//Adiciona ao tiro, o estilo
-	const music = new Audio('tiro.wav');
+	const music = new Audio('./songs/tiro.wav');
 	music.play();
 	document.body.appendChild(tiro);//Adiciona o "tiro" no body do HTML
 }
@@ -148,13 +135,13 @@ function criaExplosao(tipo,x,y){//Tipo 1=AR, 2=TERRA
 	if(tipo==1){
 		att1.value="esplosaoAr";
 		att2.value="top:"+y+"px;left:"+x+"px;";
-		att4.value="explosao_ar.gif?"+new Date();
+		att4.value="./imgs/explosao_ar.gif?"+new Date();
 	}else{
 		att1.value="esplosaoChao";
 		att2.value="top:"+(tamTelaH-57)+"px;left:"+(x-17)+"px;";
-		att4.value="explosao_chao.gif?"+new Date();
+		att4.value="./imgs/explosao_chao.gif?"+new Date();
 	}
-	att5.value="exp1.mp3?"+new Date();
+	att5.value="./songs/exp1.mp3?"+new Date();
 	att6.value="som"+indiceSom;
 	explosao.setAttributeNode(att1);//Adiciona atributo "att1" na div "explosao"
 	explosao.setAttributeNode(att2);//Adiciona atributo "att2" na div "explosao"
@@ -170,28 +157,33 @@ function criaExplosao(tipo,x,y){//Tipo 1=AR, 2=TERRA
 	indiceSom++;	 //as explosões tenham ids diferentes, consequentemente, serão explosões diferentes
 }
 function controlaJogador(){
-	pjy+=diryJ*velJ;
-	pjx+=dirxJ*velJ;
-	if(pjx<=0){
-		pjx=1024;
-	}else if(pjx>=1024){
-		pjx=0;
-	}
-	jog.style.top=pjy+"px";
-	jog.style.left=pjx+"px";
+    pjy += diryJ * velJ;
+    pjx += dirxJ * velJ;
+    if (pjx < 0) {// Limit the spacecraft's horizontal movement to the width of the screen
+        pjx = window.innerWidth - jog.offsetWidth;
+    } else if (pjx > window.innerWidth - jog.offsetWidth) {
+        pjx = 0;
+    }
+    if (pjy < 0) {// Limit the spacecraft's vertical movement to the height of the screen
+        pjy = 0;
+    } else if (pjy > window.innerHeight - jog.offsetHeight) {
+        pjy = window.innerHeight - jog.offsetHeight;
+    }
+    jog.style.top = pjy + "px";
+    jog.style.left = pjx + "px";
 }
 function gerenciaGame(){
 	barraPlaneta.style.width=vidaPlaneta+"px";
 	if(contBombas<=0){
 		jogo=false;
 		clearInterval(tmpCriaBomba);
-		telaMsg.style.backgroundImage="url('vitoria.jpg')";
+		telaMsg.style.backgroundImage="url('./imgs/vitoria.png')";
 		telaMsg.style.display="block";
 	}
 	if(vidaPlaneta<=0){
 		jogo=false;
 		clearInterval(tmpCriaBomba);
-		telaMsg.style.backgroundImage="url('derrota.jpg')";
+		telaMsg.style.backgroundImage="url('./imgs/derrota.png')";
 		telaMsg.style.display="block";
 	}
 }
@@ -248,11 +240,24 @@ function inicia(){
 	indiceExplosao=indiceSom=0;
 	//Telas
 	telaMsg=document.getElementById("telaMsg");
-	telaMsg.style.backgroundImage="url('intro.jpg')";
+	telaMsg.style.backgroundImage="url('./imgs/telaInicial.png')";
 	telaMsg.style.display="block";
 	document.getElementById("btnJogar").addEventListener("click",reinicia);
 	gameLoop();
 }
-window.addEventListener("load",inicia);
-document.addEventListener("keydown",teclaDw);
-document.addEventListener("keyup",teclaUp);
+function isMobileOrTablet() {
+	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+document.addEventListener("DOMContentLoaded", ()=>{
+    if (isMobileOrTablet()) {//If the game is beeing runned in a mobile device
+		var telaMsg = document.getElementById("telaMsg");
+        telaMsg.style.backgroundImage="url('./imgs/erro.png')";// Show the warning image inside the telaMsg div
+        telaMsg.style.display = 'flex'; // Use 'flex' if you want to center the content as per the CSS
+		var playButton=document.getElementById("btnJogar");
+		playButton.style.display="none"
+    } else {
+        inicia()
+		document.addEventListener("keydown",teclaDw)
+		document.addEventListener("keyup",teclaUp)
+    }
+})

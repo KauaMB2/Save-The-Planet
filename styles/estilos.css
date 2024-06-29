@@ -1,0 +1,93 @@
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: #fff;
+    background-image: url("../imgs/fundo.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.texto{
+	color: #fff
+}
+.navJog{
+	width:40px;
+	height: 40px;
+	background-image: url("../imgs/nave_jog.gif");
+	position: absolute;
+}
+#medidorPlaneta{
+	border: 2px solid #000;
+	width: 300px;
+	height: 20px;
+	background-color: #fff;
+}
+#barraPlaneta{
+	width: 300px;
+	height: 20px;
+	background-color: #55f;
+}
+.tiroJog{
+	width: 6px;
+	height: 6px;
+	background-color: #ff1;
+	border-radius: 6px;
+	position: absolute;
+}
+.bomba{
+	width: 24px;
+	height: 40px;
+	background-image: url("../imgs/bomba.gif");
+	position: absolute;
+}
+.esplosaoChao{
+	width: 55px;
+	height: 57px;
+	position: absolute;
+}
+.esplosaoAr{
+	width: 70px;
+	height: 70px;
+	position: absolute;
+}
+.telaMsg {
+    position: absolute;
+    width: 900px;
+    height: 506px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    display: none;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contBombas{
+	width: 100px;
+	height: 50px;
+	left: 30px;
+	top: 20px;
+	background-color: #000;
+}
+.textoContBombas{
+	background-color: #fff;
+}
+.btnJogar {
+	width: 160px;
+	height: 50px;
+	background-color: #A020F0;
+	color: #fff;           /* Set text color to white */
+	font-size: 38px;       /* Increase font size */
+	font-weight: bold;     /* Make the text bold */
+	border: none;          /* Remove default border */
+	border-radius: 5px;    /* Add rounded corners for better appearance */
+	cursor: pointer;       /* Change cursor to pointer when hovering over the button */
+	text-align: center;    /* Center the text */
+	display: flex;         /* Use flexbox to center text vertically and horizontally */
+	justify-content: center;
+	align-items: center;
+}
